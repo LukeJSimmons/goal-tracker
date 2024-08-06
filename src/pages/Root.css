@@ -1,8 +1,19 @@
+#root {
+    text-align: center;
+}
+
 footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
     padding: 2vh 0;
-    background-color: aqua;
+    background-color: gray;
+}
+
+.flex {
+    display: flex;
 }

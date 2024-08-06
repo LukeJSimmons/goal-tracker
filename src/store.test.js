@@ -4,6 +4,11 @@ test('reducer should return the initial state', () => {
     //Implement later???
 })
 
+test('Goals should be an array of objects', () => {
+    let containsObjects = store.getState().goals.every(element => typeof element === "object" && element !== null && !Array.isArray(element));
+    expect(Array.isArray(store.getState().goals) && containsObjects);
+});
+
 test('ADD should add a new goal to array', () => {
     const initialState = store.getState();
 
@@ -18,7 +23,12 @@ test('ADD should add a new goal to array', () => {
         payload: newGoal
     });
 
-    expect(store.getState()).toEqual({goals: [newGoal]});
+    const expectedState = {
+        ...initialState,
+        goals: [...initialState.goals, newGoal]
+    };
+
+    expect(store.getState()).toEqual(expectedState);
 })
 
 test('DELETE should remove goal from array', () => {

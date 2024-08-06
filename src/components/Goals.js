@@ -1,5 +1,11 @@
+import "./Goals.css";
+
 import store from "../store";
 import React, { useState, useEffect } from 'react';
+
+import CalculateDate from "../utilities/CalculateDate";
+
+import Goal from "./Goal";
 
 const Goals = () => {
     const [goals, setGoals] = useState(store.getState().goals);
@@ -14,7 +20,7 @@ const Goals = () => {
 
     return (<div id="goals" data-testid="goals">
         {goals.map((goal) => (
-            <h1 key={goal.id}>{goal.title}</h1>
+            <Goal key={goal.id} title={goal.title} deadline={CalculateDate(goal.deadline)} recur={goal.recur} />
         ))}
     </div>);
 }

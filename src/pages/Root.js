@@ -1,11 +1,13 @@
 import './Root.css';
 
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom";
+import AddButton from '../components/AddButton';
 
 const Root = () => {
-    return (<div data-testid="root">
+    return (<div id='root' data-testid="root">
         <Outlet />
         <footer data-testid="footer">
+            <AddButton />
             <button id="homeButton" data-testid="homeButton">Home</button>
         </footer>
     </div>)

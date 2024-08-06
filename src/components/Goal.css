@@ -1,0 +1,45 @@
+.goal {
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    width: 50%;
+    background-color: black;
+    color: white;
+    border-radius: 1.25rem;
+    margin: 0.5rem;
+}
+
+.goal.completed {
+    color: gray;
+}
+
+.goal button {
+    background-color: white;
+    border-radius: 2rem;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.goal button.completed {
+    background-color: black;
+    color: gray;
+}
+
+#textContainer {
+    width: 75%;
+}
+
+#textContainer .flex {
+    justify-content: center;
+}
+
+#textContainer .flex p {
+    padding: 0 1rem;
+}
+
+@media screen and (max-width: 500px) {
+    .goal {
+        width: 90%;
+    }
+}

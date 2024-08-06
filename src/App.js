@@ -1,5 +1,3 @@
-import './App.css';
-
 // Add react-router-dom imports
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 

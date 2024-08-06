@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const goalsSlice = createSlice({
     name: 'goals',
-    initialState: [{}],
+    initialState: [],
     reducers: {
         addGoal: (state, action) => [...state, action.payload],
         deleteGoal: (state, action) => state.filter(goal => goal.title !== action.payload.title),
