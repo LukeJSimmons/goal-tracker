@@ -12,8 +12,8 @@ const goalsSlice = createSlice({
             return [...state, action.payload]
         },
         deleteGoal: (state, action) => {
-            SaveData({goals: state.filter(goal => goal.title !== action.payload)});
-            return state.filter(goal => goal.title !== action.payload)
+            SaveData({goals: state.filter(goal => goal.key !== action.payload)});
+            return state.filter(goal => goal.key !== action.payload)
         },
     }
 })

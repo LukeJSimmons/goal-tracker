@@ -1,21 +1,9 @@
-const calculateDate = (endDate, recur=false) => {
+const calculateDate = (dueDate) => {
     const now = new Date();
-    const end = new Date(endDate);
+    const end = new Date(dueDate);
     
     const timeDifference = (end - now);
     const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-
-    if (recur) {
-        let currentDate = new Date();
-
-        let dueDate = new Date(currentDate);
-        dueDate.setDate(currentDate.getDate() + daysDifference);
-
-        let recurDate = new Date(dueDate);
-        recurDate.setDate(dueDate.getDate() + daysDifference);
-
-        return currentDate < dueDate ? 'future' : 'past';
-    }
 
     return daysDifference;
 }
@@ -40,4 +28,14 @@ const convertDateToString = (daysDifference) => {
     return response;
 }
 
-export {calculateDate, convertDateToString};
+const calculateRecur = (dateCreated, dueDate) => {
+    const timeDifference = (new Date(dueDate) - dateCreated);
+    const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+    let recurDate = new Date(dueDate);
+    recurDate.setDate(dueDate.getDate() + daysDifference);
+
+    return recurDate;
+}
+
+export {calculateDate, convertDateToString, calculateRecur};

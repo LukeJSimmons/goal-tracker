@@ -3,9 +3,9 @@ import "./Goals.css";
 import store from "../store";
 import React, { useState, useEffect } from 'react';
 
-import { calculateDate, convertDateToString } from '../utilities/CalculateDate';
-
 import Goal from "./Goal";
+
+
 
 const Goals = () => {
     const [goals, setGoals] = useState(store.getState().goals);
@@ -18,9 +18,11 @@ const Goals = () => {
         return () => unsubscribe();
     }, []);
 
+    console.log(goals);
+
     return (<div id="goals" data-testid="goals">
         {goals.map((goal) => (
-            <Goal key={goal.id} title={goal.title} deadline={convertDateToString(calculateDate(goal.deadline))} recur={goal.recur} dateCreated={new Date()} dueDate={new Date(goal.deadline)} />
+            <Goal Key={goal.key} title={goal.title} recur={goal.recur} dateCreated={goal.dateCreated} dueDate={goal.dueDate} />
         ))}
     </div>);
 }

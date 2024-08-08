@@ -4,8 +4,6 @@ import { useState } from "react";
 import store from "../store";
 import { v4 as uuidv4 } from "uuid";
 
-import { SaveData, LoadData } from '../SaveHandler';
-
 const AddButton = () => {
     const [title, setTitle] = useState('');
 
@@ -13,10 +11,10 @@ const AddButton = () => {
         setTitle(event.target.value);
     }
 
-    const [deadline, setDeadline] = useState('');
+    const [dueDate, setDueDate] = useState('');
 
-    const handleDeadlineChange = (event) => {
-        setDeadline(event.target.value);
+    const handleDueDateChange = (event) => {
+        setDueDate(event.target.value);
     }
 
     const [recur, setRecur] = useState(false);
@@ -26,22 +24,21 @@ const AddButton = () => {
     }
     
     const add = () => {
-        if (!title || !deadline) {
+        if (!title || !dueDate) {
             return;
         }
         store.dispatch({
             type: 'goals/addGoal',
-            payload: {title: title, deadline: deadline, id: uuidv4(), recur: recur}
+            payload: {title: title, dateCreated: new Date(), dueDate: dueDate, key: uuidv4(), recur: recur}
         })
         setTitle('');
-        setDeadline('');
-        setRecur('');
-        console.log(LoadData());
+        setDueDate('');
+        setRecur(false);
     }
 
     return (<div>
         <input id="titleInput" data-testid="titleInput" value={title} onChange={handleTitleChange} placeholder="title"></input>
-        <input id="deadlineInput" data-testid="deadlineInput" value={deadline} onChange={handleDeadlineChange} placeholder="deadline" type="date"></input>
+        <input id="deadlineInput" data-testid="deadlineInput" value={dueDate} onChange={handleDueDateChange} placeholder="deadline" type="date"></input>
         <button id='recurButton' className={recur ? 'clicked' : ''} onClick={handleRecurPress}>Recur</button>
         <button id="addButton" data-testid="addButton" onClick={add}>Add</button>
     </div>);

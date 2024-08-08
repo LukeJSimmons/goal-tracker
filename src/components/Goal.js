@@ -3,8 +3,9 @@ import './Goal.css';
 import { useState } from 'react';
 
 import store from '../store';
+import { calculateDate, convertDateToString, calculateRecur } from '../utilities/CalculateDate';
 
-const Goal = ({title, deadline, key, recur, dateCreated, dueDate}) => {
+const Goal = ({Key, title, recur, dateCreated, dueDate}) => {
     const [completed, setCompleted] = useState(false);
 
     const handleCompletedClick = () => {
@@ -18,20 +19,21 @@ const Goal = ({title, deadline, key, recur, dateCreated, dueDate}) => {
     const handleDeleteClick = () => {
         store.dispatch({
             type: 'goals/deleteGoal',
-            payload: title
+            payload: Key
         })
     }
 
     if (dateCreated > dueDate && completed && recur) {
         setCompleted(false);
+        dueDate = calculateRecur(dueDate);
     }
 
     return (
         <div className={completed ? 'goal completed' : 'goal'}>
             <div id='textContainer'>
-                <h3 key={key}>{title}</h3>
+                <h3>{title}</h3>
                 <div className='flex'>
-                    <p>{deadline}</p>
+                    <p>{convertDateToString(calculateDate(dueDate))}</p>
                     <p>{recur ? 'Repeat' : `Don't Repeat`}</p>
                 </div>
             </div>
