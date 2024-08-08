@@ -2,11 +2,15 @@ import './Goal.css';
 
 import { useState } from 'react';
 
-const Goal = ({title, deadline, key, recur}) => {
+const Goal = ({title, deadline, key, recur, dateCreated, dueDate}) => {
     const [completed, setCompleted] = useState(false);
 
     const handleCompletedClick = () => {
         setCompleted(true);
+    }
+
+    if (dateCreated > dueDate && completed && recur) {
+        setCompleted(false);
     }
 
     return (

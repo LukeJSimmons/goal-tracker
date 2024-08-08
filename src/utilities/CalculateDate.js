@@ -1,12 +1,30 @@
-const CalculateDate = (endDate) => {
+const calculateDate = (endDate, recur=false) => {
     const now = new Date();
     const end = new Date(endDate);
     
-    const timeDifference = Math.abs(end - now);
+    const timeDifference = (end - now);
     const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-    const weeksDifference = (daysDifference / 7);
 
+    if (recur) {
+        let currentDate = new Date();
+
+        let dueDate = new Date(currentDate);
+        dueDate.setDate(currentDate.getDate() + daysDifference);
+
+        let recurDate = new Date(dueDate);
+        recurDate.setDate(dueDate.getDate() + daysDifference);
+
+        return currentDate < dueDate ? 'future' : 'past';
+    }
+
+    return daysDifference;
+}
+
+const convertDateToString = (daysDifference) => {
     let response = '';
+
+    const weeksDifference = daysDifference / 7;
+    
     if (daysDifference % 7 === 0) {
         response = `Due in ${weeksDifference} Week`;
         if (weeksDifference > 1) {
@@ -22,4 +40,4 @@ const CalculateDate = (endDate) => {
     return response;
 }
 
-export default CalculateDate;
+export {calculateDate, convertDateToString};

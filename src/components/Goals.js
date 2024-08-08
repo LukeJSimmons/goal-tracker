@@ -3,7 +3,7 @@ import "./Goals.css";
 import store from "../store";
 import React, { useState, useEffect } from 'react';
 
-import CalculateDate from "../utilities/CalculateDate";
+import { calculateDate, convertDateToString } from '../utilities/CalculateDate';
 
 import Goal from "./Goal";
 
@@ -20,7 +20,7 @@ const Goals = () => {
 
     return (<div id="goals" data-testid="goals">
         {goals.map((goal) => (
-            <Goal key={goal.id} title={goal.title} deadline={CalculateDate(goal.deadline)} recur={goal.recur} />
+            <Goal key={goal.id} title={goal.title} deadline={convertDateToString(calculateDate(goal.deadline))} recur={goal.recur} dateCreated={new Date()} dueDate={new Date(goal.deadline)} />
         ))}
     </div>);
 }
