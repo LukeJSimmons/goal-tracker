@@ -4,6 +4,8 @@ import { useState } from "react";
 import store from "../store";
 import { v4 as uuidv4 } from "uuid";
 
+import { SaveData, LoadData } from '../SaveHandler';
+
 const AddButton = () => {
     const [title, setTitle] = useState('');
 
@@ -34,6 +36,7 @@ const AddButton = () => {
         setTitle('');
         setDeadline('');
         setRecur('');
+        console.log(LoadData());
     }
 
     return (<div>

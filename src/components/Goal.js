@@ -2,11 +2,24 @@ import './Goal.css';
 
 import { useState } from 'react';
 
+import store from '../store';
+
 const Goal = ({title, deadline, key, recur, dateCreated, dueDate}) => {
     const [completed, setCompleted] = useState(false);
 
     const handleCompletedClick = () => {
-        setCompleted(true);
+        if (recur) {
+            setCompleted(true);
+        } else {
+            handleDeleteClick();
+        }
+    }
+
+    const handleDeleteClick = () => {
+        store.dispatch({
+            type: 'goals/deleteGoal',
+            payload: title
+        })
     }
 
     if (dateCreated > dueDate && completed && recur) {
@@ -23,6 +36,7 @@ const Goal = ({title, deadline, key, recur, dateCreated, dueDate}) => {
                 </div>
             </div>
             <button className={completed ? 'completed' : ''} onClick={handleCompletedClick}>-/</button>
+            <button onClick={handleDeleteClick}>D</button>
         </div>
     );
 }
