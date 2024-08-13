@@ -3,6 +3,8 @@ import './Root.css';
 import { Outlet } from "react-router-dom";
 import AddButton from '../components/AddButton';
 
+import store from '../store';
+
 const Root = () => {
     return (<div id='root' data-testid="root">
         <Outlet />
