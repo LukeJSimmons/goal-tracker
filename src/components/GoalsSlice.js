@@ -5,7 +5,7 @@ import { SaveData, LoadData } from "../SaveHandler";
 
 const goalsSlice = createSlice({
     name: 'goals',
-    initialState: LoadData().goals,
+    initialState: LoadData().goals ? LoadData().goals : {goals: []},
     reducers: {
         addGoal: (state, action) => {
             SaveData({goals: [...state, action.payload]});
