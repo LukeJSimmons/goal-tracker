@@ -29,18 +29,20 @@ const AddButton = () => {
         }
         store.dispatch({
             type: 'goals/addGoal',
-            payload: {title: title, dateCreated: new Date(), dueDate: dueDate, key: uuidv4(), recur: recur}
+            payload: {title: title, dateCreated: new Date(), dueDate: dueDate, key: uuidv4(), recur: recur, completed: false}
         })
         setTitle('');
         setDueDate('');
         setRecur(false);
     }
 
-    return (<div>
-        <input id="titleInput" data-testid="titleInput" value={title} onChange={handleTitleChange} placeholder="title"></input>
-        <input id="deadlineInput" data-testid="deadlineInput" value={dueDate} onChange={handleDueDateChange} placeholder="deadline" type="date"></input>
-        <button id='recurButton' className={recur ? 'clicked' : ''} onClick={handleRecurPress}>Recur</button>
-        <button id="addButton" data-testid="addButton" onClick={add}>Add</button>
+    return (<div id='addContainer' className='secondary'>
+        <input className='primary' id="titleInput" data-testid="titleInput" value={title} onChange={handleTitleChange} placeholder="title"></input>
+        <br/>
+        <input className='primary' id="deadlineInput" data-testid="deadlineInput" value={dueDate} onChange={handleDueDateChange} placeholder="deadline" type="date"></input>
+        <button id='recurButton' className={recur ? 'alternate' : 'primary'} onClick={handleRecurPress}>Repeat</button>
+        <br/>
+        <button className='alternate' id="addButton" data-testid="addButton" onClick={add}>Add</button>
     </div>);
 };
 

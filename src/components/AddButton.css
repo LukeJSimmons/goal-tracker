@@ -1,4 +1,12 @@
-.clicked {
-    color: white;
-    background-color: black;
+#addContainer {
+    width: 15rem;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: -1rem;
+    box-shadow: 1px 1px 10px #030027;
+}
+
+button {
+    border-radius: 0.25rem;
+    margin: 0.25rem;
 }

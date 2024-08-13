@@ -4,11 +4,13 @@ import { Outlet } from "react-router-dom";
 import AddButton from '../components/AddButton';
 
 const Root = () => {
-    return (<div id='root' data-testid="root">
+    return (<div id='root' data-testid="root" className='primary'>
         <Outlet />
         <footer data-testid="footer">
             <AddButton />
-            <button id="homeButton" data-testid="homeButton">Home</button>
+            <div className='secondary' id='footerContainer'>
+                <button className='primary' id="homeButton" data-testid="homeButton">Home</button>
+            </div>
         </footer>
     </div>)
 }

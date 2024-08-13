@@ -15,6 +15,24 @@ const goalsSlice = createSlice({
             SaveData({goals: state.filter(goal => goal.key !== action.payload)});
             return state.filter(goal => goal.key !== action.payload)
         },
+        completeGoal: (state, action) => {
+            for (const goal of state) {
+                if (goal.key === action.payload) {
+                    goal.completed = true;
+                }
+            }
+            SaveData({goals: state});
+            return state;
+        },
+        uncompleteGoal: (state, action) => {
+            for (const goal of state) {
+                if (goal.key === action.payload) {
+                    goal.completed = false;
+                }
+            }
+            SaveData({goals: state});
+            return state;
+        },
     }
 })
 
