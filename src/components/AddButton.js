@@ -29,7 +29,7 @@ const AddButton = () => {
         }
         store.dispatch({
             type: 'goals/addGoal',
-            payload: {title: title, dateCreated: new Date(), dueDate: dueDate, key: uuidv4(), recur: recur, completed: false}
+            payload: {title: title, dateCreated: new Date(), dueDate: new Date(dueDate), key: uuidv4(), recur: recur, completed: false}
         })
         setTitle('');
         setDueDate('');

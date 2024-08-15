@@ -1,7 +1,7 @@
 #addContainer {
     width: 15rem;
     border-radius: 0.5rem;
-    padding: 1.5rem;
+    padding: 1rem;
     margin-bottom: -1rem;
     box-shadow: 1px 1px 10px #030027;
 }
@@ -9,4 +9,22 @@
 button {
     border-radius: 0.25rem;
     margin: 0.25rem;
+    padding: 0.3rem;
+}
+
+button:hover {
+    transition: background-color 0.2s;
+    background-color: #030027;
+}
+
+button:active {
+    transition: background-color 0.025s;
+    background-color: #00A6FB;
+}
+
+input {
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.3rem;
+    margin: 0.5rem;
 }

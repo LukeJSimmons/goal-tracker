@@ -26,8 +26,9 @@ const goalsSlice = createSlice({
         },
         uncompleteGoal: (state, action) => {
             for (const goal of state) {
-                if (goal.key === action.payload) {
+                if (goal.key === action.payload.Key) {
                     goal.completed = false;
+                    goal.dueDate = action.payload.newDueDate;
                 }
             }
             SaveData({goals: state});

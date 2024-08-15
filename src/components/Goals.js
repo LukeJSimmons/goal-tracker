@@ -18,8 +18,6 @@ const Goals = () => {
         return () => unsubscribe();
     }, []);
 
-    console.log(goals);
-
     return (<div className="primary" id="goals" data-testid="goals">
         {goals.map((goal) => (
             <Goal Key={goal.key} title={goal.title} recur={goal.recur} dateCreated={goal.dateCreated} dueDate={goal.dueDate} completed={goal.completed} />

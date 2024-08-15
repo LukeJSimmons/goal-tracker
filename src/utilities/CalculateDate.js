@@ -29,11 +29,17 @@ const convertDateToString = (daysDifference) => {
 }
 
 const calculateRecur = (dateCreated, dueDate) => {
-    const timeDifference = (new Date(dueDate) - dateCreated);
+    const timeDifference = Math.abs(new Date(dueDate) - new Date(dateCreated));
     const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
     let recurDate = new Date(dueDate);
-    recurDate.setDate(dueDate.getDate() + daysDifference);
+    recurDate.setDate(recurDate.getDate() + daysDifference);
+
+    console.log(dateCreated);
+    console.log(dueDate);
+    console.log(timeDifference);
+    console.log(daysDifference);
+    console.log(recurDate);
 
     return recurDate;
 }
