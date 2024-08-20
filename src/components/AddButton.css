@@ -1,25 +1,25 @@
-#addContainer {
+.addContainer {
     width: 15rem;
     border-radius: 0.5rem;
     padding: 1rem;
     margin-bottom: -1rem;
-    box-shadow: 1px 1px 10px #030027;
+    overflow: hidden;
+    height: 6vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
 }
 
-button {
-    border-radius: 0.25rem;
-    margin: 0.25rem;
-    padding: 0.3rem;
+.addContainer button {
+    background-color: #ffffff00;
+    box-shadow: none;
+    transition: all 0.1s ease-in-out;
+    width: 20%;
 }
 
-button:hover {
-    transition: background-color 0.2s;
-    background-color: #110d47;
-}
-
-button:active {
-    transition: background-color 0.025s;
-    background-color: #00A6FB;
+.addContainer button:hover {
+    transform: scale(1.1);
 }
 
 input {
@@ -29,10 +29,6 @@ input {
     margin: 0.5rem;
 }
 
-#shown {
-    display: block;
-}
-
-#hidden {
-    display: none;
+.showInputs {
+    height: 20vh;
 }
