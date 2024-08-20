@@ -14,7 +14,7 @@ button {
 
 button:hover {
     transition: background-color 0.2s;
-    background-color: #030027;
+    background-color: #110d47;
 }
 
 button:active {
@@ -27,4 +27,12 @@ input {
     border-radius: 0.25rem;
     padding: 0.3rem;
     margin: 0.5rem;
+}
+
+#shown {
+    display: block;
+}
+
+#hidden {
+    display: none;
 }

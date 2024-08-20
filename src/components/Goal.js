@@ -3,13 +3,15 @@ import './Goal.css';
 import { useState } from 'react';
 
 import store from '../store';
-import { calculateDate, convertDateToString, calculateRecur } from '../utilities/CalculateDate';
+import { calculateDate, convertDateToString} from '../utilities/CalculateDate';
 
 import X from '../images/X.png';
 import Check from '../images/Check.png';
 import Repeat from '../images/Repeat.png';
 
-const Goal = ({Key, title, recur, dateCreated, dueDate, completed}) => {
+const Goal = ({Key, title, recur, recurInterval, dateCreated, dueDate, completed}) => {
+
+    const [currentDate, setCurrentDate] = useState(new Date());
 
     const handleCompletedClick = () => {
         if (recur) {
@@ -29,12 +31,13 @@ const Goal = ({Key, title, recur, dateCreated, dueDate, completed}) => {
         })
     }
 
-    if (new Date(dateCreated) > new Date(dueDate) && completed && recur) {
-        dueDate = calculateRecur(dateCreated, dueDate);
+    if (currentDate > new Date(dueDate) && completed && recur) {
+        const newDueDate = dueDate;
+        newDueDate.setDate(newDueDate.getDate() + recurInterval);
 
         store.dispatch({
             type: 'goals/uncompleteGoal',
-            payload: {Key: Key, newDueDate: dueDate}
+            payload: {Key: Key, newDueDate: newDueDate}
         })
     }
 
@@ -44,7 +47,7 @@ const Goal = ({Key, title, recur, dateCreated, dueDate, completed}) => {
                 <h3>{title}</h3>
                 <div className='flex'>
                     <p>{convertDateToString(calculateDate(dueDate))}</p>
-                    {recur ? (<img id='repeatIcon' src={Repeat}/>) : <></>}
+                    {recur ? (<p>every {recurInterval} days</p>) : <></>}
                 </div>
             </div>
             <div id='buttonContainer'>

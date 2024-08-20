@@ -25,23 +25,33 @@ const convertDateToString = (daysDifference) => {
         }
     }
 
+    if (daysDifference <= 0) {
+        response = 'Due Today';
+    }
+
     return response;
 }
 
-const calculateRecur = (dateCreated, dueDate) => {
-    const timeDifference = Math.abs(new Date(dueDate) - new Date(dateCreated));
-    const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+const convertWordsToInterval = (input) => {
+    const parts = input.split(' ');
+    const number = Number(parts[0]);
+    const type = parts[1];
 
-    let recurDate = new Date(dueDate);
-    recurDate.setDate(recurDate.getDate() + daysDifference);
+    let typeNumber = 1;
 
-    console.log(dateCreated);
-    console.log(dueDate);
-    console.log(timeDifference);
-    console.log(daysDifference);
-    console.log(recurDate);
+    switch (type) {
+        case 'week' || 'weeks':
+            typeNumber = 7;
+            break;
+        case 'month' || 'months':
+            typeNumber = 30;
+            break;
+        default:
+            typeNumber = 1;
+    }
 
-    return recurDate;
+    return number * typeNumber;
 }
 
-export {calculateDate, convertDateToString, calculateRecur};
+
+export {calculateDate, convertDateToString, convertWordsToInterval};
