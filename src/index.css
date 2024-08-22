@@ -30,3 +30,8 @@ button {
   color: #FFF;
   background-color: #00A6FB;
 }
+
+.no-shadow {
+  text-shadow: none;
+  box-shadow: none;
+}

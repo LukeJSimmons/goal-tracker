@@ -1,6 +1,6 @@
 import './Root.css';
 
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import AddButton from '../components/AddButton';
 
 import Home from '../images/Home.png';
@@ -15,8 +15,8 @@ const Root = () => {
         <footer data-testid="footer">
             <AddButton />
             <div className='primary' id='footerContainer'>
-                <button className='alternate' id="homeButton" data-testid="homeButton"><img src={Home} /></button>
-                <button className='alternate' id="labelButton" data-testid="labelButton"><img src={Label} /></button>
+                <Link to='/'><button className='alternate' id="homeButton" data-testid="homeButton"><img src={Home} alt='home' /></button></Link>
+                <Link to='/labels'><button className='alternate' id="labelButton" data-testid="labelButton"><img src={Label} alt='labels' /></button></Link>
             </div>
         </footer>
     </div>)

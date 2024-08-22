@@ -1,6 +1,6 @@
 import './Goal.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import store from '../store';
 import { calculateDate, convertDateToString} from '../utilities/CalculateDate';
@@ -13,6 +13,10 @@ import RepeatCompleted from '../images/RepeatCompleted.png';
 const Goal = ({Key, title, recur, recurInterval, dateCreated, dueDate, completed}) => {
 
     const [currentDate, setCurrentDate] = useState(new Date());
+
+    useEffect(() => {
+        setCurrentDate(new Date());
+    }, []);
 
     const handleCompletedClick = () => {
         if (recur) {
@@ -49,14 +53,14 @@ const Goal = ({Key, title, recur, recurInterval, dateCreated, dueDate, completed
                 <div className='flex'>
                     <p>{convertDateToString(calculateDate(dueDate))}</p>
                     {recur ? (<>
-                        <img src={completed ? RepeatCompleted : Repeat} />
+                        <img src={completed ? RepeatCompleted : Repeat} alt='repeat every' />
                         <p>{recurInterval} days</p>
                     </>) : <></>}
                 </div>
             </div>
             <div id='buttonContainer'>
-                {/* <button className='alternate' onClick={handleDeleteClick}><img src={X}/></button> */}
-                <button className={completed ? 'completed' : 'alternate'} onClick={handleCompletedClick}><img src={Check}/></button>
+                {completed ? <button className='secondary no-shadow' onClick={handleDeleteClick}><img src={X} alt='delete'/></button> : <></>}
+                <button className={completed ? 'completed' : 'alternate'} onClick={handleCompletedClick}><img src={Check} alt='complete'/></button>
             </div>
         </div>
     );
