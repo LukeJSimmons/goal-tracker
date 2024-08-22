@@ -59,7 +59,7 @@ const AddButton = () => {
         if (pageIsGoals) {
             store.dispatch({
                 type: 'goals/addGoal',
-                payload: {title: title, dateCreated: new Date(), dueDate: new Date(dueDate), key: uuidv4(), recur: recur, recurInterval: convertWordsToInterval(recurInterval), completed: false}
+                payload: {title: title, dueDate: dueDate, key: uuidv4(), recur: recur, recurInterval: convertWordsToInterval(recurInterval), completed: false}
             })
             setTitle('');
             setDueDate('');

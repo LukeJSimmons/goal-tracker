@@ -3,14 +3,14 @@ import './Goal.css';
 import { useEffect, useState } from 'react';
 
 import store from '../store';
-import { calculateDate, convertDateToString} from '../utilities/CalculateDate';
+import { calculateDate, convertDateToString } from '../utilities/CalculateDate';
 
 import X from '../images/X.png';
 import Check from '../images/Check.png';
 import Repeat from '../images/Repeat.png';
 import RepeatCompleted from '../images/RepeatCompleted.png';
 
-const Goal = ({Key, title, recur, recurInterval, dateCreated, dueDate, completed}) => {
+const Goal = ({Key, title, recur, recurInterval, dueDate, completed}) => {
 
     const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -54,7 +54,7 @@ const Goal = ({Key, title, recur, recurInterval, dateCreated, dueDate, completed
                     <p>{convertDateToString(calculateDate(dueDate))}</p>
                     {recur ? (<>
                         <img src={completed ? RepeatCompleted : Repeat} alt='repeat every' />
-                        <p>{recurInterval} days</p>
+                        <p>{recurInterval % 7 === 0 ? recurInterval / 7 : recurInterval} {recurInterval % 7 === 0 ? 'weeks' : 'days'}</p>
                     </>) : <></>}
                 </div>
             </div>

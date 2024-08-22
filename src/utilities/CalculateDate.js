@@ -34,20 +34,20 @@ const convertDateToString = (daysDifference) => {
 
 const convertWordsToInterval = (input) => {
     const parts = input.split(' ');
+    if (parts.length <= 1) {
+        
+    }
     const number = Number(parts[0]);
     const type = parts[1];
 
     let typeNumber = 1;
 
-    switch (type) {
-        case 'week' || 'weeks':
-            typeNumber = 7;
-            break;
-        case 'month' || 'months':
-            typeNumber = 30;
-            break;
-        default:
-            typeNumber = 1;
+    if (type === 'week' || type ==='weeks') {
+        typeNumber = 7;
+    } else if (type === 'month' || type === 'months') {
+        typeNumber = 30;
+    } else {
+        typeNumber = 1;
     }
 
     return number * typeNumber;

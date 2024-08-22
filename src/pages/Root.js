@@ -1,14 +1,14 @@
 import './Root.css';
 
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useEffect } from 'react';
 import AddButton from '../components/AddButton';
 
 import { SaveData } from '../SaveHandler';
 import store from '../store';
 
-import Home from '../images/Home.png';
-import Label from '../images/Label.png';
+// import Home from '../images/Home.png';
+// import Label from '../images/Label.png';
 
 const Root = () => {
     useEffect(() => {
