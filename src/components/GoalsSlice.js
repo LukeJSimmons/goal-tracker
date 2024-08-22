@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { SaveData, LoadData } from "../SaveHandler";
+import { LoadData } from "../SaveHandler";
 
 
 const goalsSlice = createSlice({
@@ -8,11 +8,9 @@ const goalsSlice = createSlice({
     initialState: LoadData().goals ? LoadData().goals : {goals: []},
     reducers: {
         addGoal: (state, action) => {
-            SaveData({goals: [...state, action.payload]});
             return [...state, action.payload]
         },
         deleteGoal: (state, action) => {
-            SaveData({goals: state.filter(goal => goal.key !== action.payload)});
             return state.filter(goal => goal.key !== action.payload)
         },
         completeGoal: (state, action) => {
@@ -21,7 +19,6 @@ const goalsSlice = createSlice({
                     goal.completed = true;
                 }
             }
-            SaveData({goals: state});
             return state;
         },
         uncompleteGoal: (state, action) => {
@@ -31,7 +28,6 @@ const goalsSlice = createSlice({
                     goal.dueDate = action.payload.newDueDate;
                 }
             }
-            SaveData({goals: state});
             return state;
         },
     }

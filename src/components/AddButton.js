@@ -1,12 +1,13 @@
 import './AddButton.css';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import store from "../store";
 import { v4 as uuidv4 } from "uuid";
 
 import { convertWordsToInterval } from '../utilities/CalculateDate';
 
 import Add from '../images/Add.png';
+import { useLocation } from 'react-router-dom';
 
 const AddButton = () => {
     const [title, setTitle] = useState('');
@@ -52,14 +53,27 @@ const AddButton = () => {
         setShowInputs(false);
     }
 
+    const location = useLocation();
+    const [pageIsGoals, setPageIsGoals] = useState(true);
+
+    useEffect(() => {
+        setPageIsGoals(location.pathname !== '/labels');
+    }, [location])
+
     return (<div className={showInputs ? 'primary addContainer showInputs' : 'primary addContainer'}>
-        <button className='alternate' id="addButton" data-testid="addButton" onClick={add}><img src={Add} /></button>
+        <button className='alternate' id="addButton" data-testid="addButton" onClick={add}><img src={Add} alt='add' /></button>
+        {pageIsGoals ?
         <div>
             <input className='secondary' id="titleInput" data-testid="titleInput" value={title} onChange={handleTitleChange} placeholder="title"></input>
             <br/>
             <input className='secondary' id="deadlineInput" data-testid="deadlineInput" value={dueDate} onChange={handleDueDateChange} placeholder="deadline" type="date"></input>
             <input id='recurInput' className='secondary' placeholder='repeat every...' value={recurInterval} onChange={handleRecurIntervalChange}></input>
         </div>
+        :
+        <div>
+            <input className='secondary' id='labelNameInput' placeholder='title'></input>
+            <input className='secondary' id='labelColorInput' placeholder='color' type='color'></input>
+        </div>}
     </div>);
 };
 
