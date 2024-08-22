@@ -1,6 +1,8 @@
+import Labels from "../components/Labels";
+
 const LabelsPage = () => {
     return (<div id="labelsPage">
-        <p>labels</p>
+        <Labels />
     </div>);
 }
 

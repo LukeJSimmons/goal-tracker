@@ -20,7 +20,7 @@ const Goals = () => {
 
     return (<div className="secondary" id="goals" data-testid="goals">
         {goals.map((goal) => (
-            <Goal Key={goal.key} title={goal.title} recur={goal.recur} recurInterval={goal.recurInterval} dateCreated={goal.dateCreated} dueDate={goal.dueDate} completed={goal.completed} />
+            <Goal key={goal.key} Key={goal.key} title={goal.title} recur={goal.recur} recurInterval={goal.recurInterval} dateCreated={goal.dateCreated} dueDate={goal.dueDate} completed={goal.completed} />
         ))}
     </div>);
 }

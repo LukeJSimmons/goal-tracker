@@ -27,8 +27,8 @@ const Root = () => {
         <footer data-testid="footer">
             <AddButton />
             <div className='primary' id='footerContainer'>
-                <Link to='/'><button className='alternate' id="homeButton" data-testid="homeButton"><img src={Home} alt='home' /></button></Link>
-                <Link to='/labels'><button className='alternate' id="labelButton" data-testid="labelButton"><img src={Label} alt='labels' /></button></Link>
+                {/* <Link to='/'><button className='alternate' id="homeButton" data-testid="homeButton"><img src={Home} alt='home' /></button></Link>
+                <Link to='/labels'><button className='alternate' id="labelButton" data-testid="labelButton"><img src={Label} alt='labels' /></button></Link> */}
             </div>
         </footer>
     </div>)
