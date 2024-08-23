@@ -9,7 +9,7 @@ const LoadData = () => {
         return JSON.parse(jsonData);
     }
     SaveData([]);
-    LoadData();
+    return LoadData();
 }
 
 export {SaveData, LoadData};
