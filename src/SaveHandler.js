@@ -8,7 +8,8 @@ const LoadData = () => {
     if (jsonData) {
         return JSON.parse(jsonData);
     }
-    return null;
+    SaveData([]);
+    LoadData();
 }
 
 export {SaveData, LoadData};

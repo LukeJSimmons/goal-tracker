@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { LoadData, SaveData } from "../SaveHandler";
+import { LoadData } from "../SaveHandler";
 
 
 const goalsSlice = createSlice({
     name: 'goals',
-    initialState: LoadData().goals ? LoadData().goals : SaveData([]),
+    initialState: LoadData().goals ? LoadData().goals : [],
     reducers: {
         addGoal: (state, action) => {
             return [...state, action.payload]
