@@ -1,4 +1,5 @@
 import store from "./store"
+import { v4 as uuidv4 } from "uuid";
 
 test('reducer should return the initial state', () => {
     //Implement later???
@@ -36,18 +37,18 @@ test('DELETE should remove goal from array', () => {
 
     const goal = {
         title: 'title2',
-        desc: 'desc2',
         deadline: '1/1/2002',
+        key: uuidv4(),
     };
 
     store.dispatch({
         type: 'goals/addGoal',
-        payload: goal,
+        payload: goal
     });
 
     store.dispatch({
         type: 'goals/deleteGoal',
-        payload: goal
+        payload: goal.key
     });
 
     expect(store.getState()).toEqual(initialState);

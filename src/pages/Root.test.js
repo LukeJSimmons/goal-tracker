@@ -1,14 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Root from "./Root";
 
-test('root renders footer', () => {
+test('root renders AddButton', () => {
     render(<Root />);
-    const footer = screen.getByTestId(/footer/i);
-    expect(footer).toBeInTheDocument();
+    const AddButton = screen.getByTestId(/addContainer/i);
+    expect(AddButton).toBeInTheDocument();
 });
-
-test('footer contains home button', () => {
-    render(<Root />);
-    const homeButton = screen.getByTestId(/homeButton/i);
-    expect(homeButton).toBeInTheDocument();
-})

@@ -9,7 +9,6 @@ import LabelsPage from './pages/LabelsPage';
 const appRouter = createBrowserRouter( createRoutesFromElements(
   <Route path='/' element={<Root/>}>
     <Route path='/' element={<HomePage/>} />
-    <Route path='/labels' element={<LabelsPage/>} />
   </Route>
 ));
 

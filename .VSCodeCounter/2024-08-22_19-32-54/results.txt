@@ -1,0 +1,71 @@
+Date : 2024-08-22 19:32:54
+Directory : c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker
+Total : 35 files,  19151 codes, 35 comments, 191 blanks, all 19377 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          3 |     18,423 |          0 |          3 |     18,426 |
+| JavaScript |         21 |        468 |         12 |        121 |        601 |
+| CSS        |          8 |        201 |          0 |         33 |        234 |
+| Markdown   |          1 |         38 |          0 |         33 |         71 |
+| HTML       |          1 |         20 |         23 |          1 |         44 |
+| XML        |          1 |          1 |          0 |          0 |          1 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                               | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                  |         35 |     19,151 |         35 |        191 |     19,377 |
+| . (Files)                                                                                          |          3 |     18,436 |          0 |         35 |     18,471 |
+| public                                                                                             |          2 |         45 |         23 |          2 |         70 |
+| src                                                                                                |         30 |        670 |         12 |        154 |        836 |
+| src (Files)                                                                                        |         10 |        149 |         10 |         39 |        198 |
+| src\components                                                                                     |         12 |        356 |          0 |         77 |        433 |
+| src\pages                                                                                          |          7 |        122 |          2 |         24 |        148 |
+| src\utilities                                                                                      |          1 |         43 |          0 |         14 |         57 |
++----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                           | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\README.md                      | Markdown   |         38 |          0 |         33 |         71 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\package-lock.json              | JSON       |     18,354 |          0 |          1 |     18,355 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\package.json                   | JSON       |         44 |          0 |          1 |         45 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\public\index.html              | HTML       |         20 |         23 |          1 |         44 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\public\manifest.json           | JSON       |         25 |          0 |          1 |         26 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\App.js                     | JavaScript |         16 |          2 |          5 |         23 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\App.test.js                | JavaScript |         12 |          0 |          3 |         15 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\SaveHandler.js             | JavaScript |         13 |          0 |          2 |         15 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\AddButton.css   | CSS        |         33 |          0 |          4 |         37 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\AddButton.js    | JavaScript |         77 |          0 |         19 |         96 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\Goal.css        | CSS        |         64 |          0 |         14 |         78 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\Goal.js         | JavaScript |         57 |          0 |         12 |         69 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\Goals.css       | CSS        |          6 |          0 |          0 |          6 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\Goals.js        | JavaScript |         19 |          0 |          9 |         28 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\GoalsSlice.js   | JavaScript |         32 |          0 |          4 |         36 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\Label.css       | CSS        |          6 |          0 |          0 |          6 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\Label.js        | JavaScript |         20 |          0 |          5 |         25 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\Labels.css      | CSS        |          6 |          0 |          0 |          6 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\Labels.js       | JavaScript |         21 |          0 |          6 |         27 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\components\LabelsSlice.js  | JavaScript |         15 |          0 |          4 |         19 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\index.css                  | CSS        |         31 |          0 |          7 |         38 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\index.js                   | JavaScript |         12 |          3 |          3 |         18 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\logo.svg                   | XML        |          1 |          0 |          0 |          1 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\pages\HomePage.css         | CSS        |          9 |          0 |          0 |          9 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\pages\HomePage.js          | JavaScript |          8 |          0 |          3 |         11 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\pages\HomePage.test.js     | JavaScript |         12 |          0 |          2 |         14 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\pages\LabelsPage.js        | JavaScript |          7 |          0 |          2 |          9 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\pages\Root.css             | CSS        |         46 |          0 |          8 |         54 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\pages\Root.js              | JavaScript |         28 |          2 |          7 |         37 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\pages\Root.test.js         | JavaScript |         12 |          0 |          2 |         14 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\reportWebVitals.js         | JavaScript |         12 |          0 |          2 |         14 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\setupTests.js              | JavaScript |          1 |          4 |          1 |          6 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\store.js                   | JavaScript |         10 |          0 |          4 |         14 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\store.test.js              | JavaScript |         41 |          1 |         12 |         54 |
+| c:\Users\thedu\OneDrive\Desktop\Making\Coding Projects\goal-tracker\src\utilities\CalculateDate.js | JavaScript |         43 |          0 |         14 |         57 |
+| Total                                                                                              |            |     19,151 |         35 |        191 |     19,377 |
++----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
