@@ -1,6 +1,6 @@
 import './AddButton.css';
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import store from "../store";
 import { v4 as uuidv4 } from "uuid";
 
@@ -22,17 +22,10 @@ const AddButton = () => {
         console.log(dueDate);
     }
 
-    const [recur, setRecur] = useState(false);
-
     const [recurInterval, setRecurInterval] = useState('');
 
     const handleRecurIntervalChange = (event) => {
         setRecurInterval(event.target.value);
-        if (event.target.value) {
-            setRecur(true);
-        } else {
-            setRecur(false);
-        }
     }
 
     const [showInputs, setShowInputs] = useState(false)
@@ -45,11 +38,10 @@ const AddButton = () => {
         
         store.dispatch({
             type: 'goals/addGoal',
-            payload: {title: title, dueDate: dueDate, key: uuidv4(), recur: recur, recurInterval: convertWordsToInterval(recurInterval), completed: false}
+            payload: {title: title, dueDate: dueDate, key: uuidv4(), recurInterval: convertWordsToInterval(recurInterval), completed: false}
         })
         setTitle('');
         setDueDate('');
-        setRecur(false);
         setRecurInterval('');
         setShowInputs(false);
     }

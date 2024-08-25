@@ -3,7 +3,6 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } 
 
 import Root from './pages/Root';
 import HomePage from './pages/HomePage';
-import LabelsPage from './pages/LabelsPage';
 
 // create router with JSX Route elements
 const appRouter = createBrowserRouter( createRoutesFromElements(

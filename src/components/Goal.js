@@ -10,7 +10,7 @@ import Check from '../images/Check.png';
 import Repeat from '../images/Repeat.png';
 import RepeatCompleted from '../images/RepeatCompleted.png';
 
-const Goal = ({Key, title, recur, recurInterval, dueDate, completed}) => {
+const Goal = ({Key, title, recurInterval, dueDate, completed}) => {
 
     const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -19,7 +19,7 @@ const Goal = ({Key, title, recur, recurInterval, dueDate, completed}) => {
     }, []);
 
     const handleCompletedClick = () => {
-        if (recur) {
+        if (recurInterval) {
             store.dispatch({
                 type: 'goals/completeGoal',
                 payload: Key
@@ -36,7 +36,7 @@ const Goal = ({Key, title, recur, recurInterval, dueDate, completed}) => {
         })
     }
 
-    if (currentDate > new Date(dueDate) && completed && recur) {
+    if (currentDate > new Date(dueDate) && completed && recurInterval) {
         const newDueDate = new Date(dueDate);
         newDueDate.setDate(newDueDate.getDate() + recurInterval);
 
@@ -52,7 +52,7 @@ const Goal = ({Key, title, recur, recurInterval, dueDate, completed}) => {
                 <h2>{title}</h2>
                 <div className='flex'>
                     <p>{convertDateToString(calculateDate(dueDate))}</p>
-                    {recur ? (<>
+                    {recurInterval ? (<>
                         <img src={completed ? RepeatCompleted : Repeat} alt='repeat every' />
                         <p>{recurInterval % 7 === 0 ? recurInterval / 7 : recurInterval} {recurInterval % 7 === 0 ? 'weeks' : 'days'}</p>
                     </>) : <></>}

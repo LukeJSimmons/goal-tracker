@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import AddButton from "./AddButton";
+import AddButton, { add } from "./AddButton";
 import userEvent from "@testing-library/user-event";
 
 describe("addButton Rendering", () => {
@@ -58,4 +58,12 @@ describe("AddButton Inputs", () => {
         userEvent.type(recurInput, testInput);
         expect(recurInput).toHaveValue(testInput);
     });
+
+    test("add function changes showInputs when title is empty", () => {
+        render(<AddButton />);
+        const addButton = screen.getByTestId(/addButton/i);
+        const addContainer = screen.getByTestId(/addContainer/i);
+        userEvent.click(addButton);
+        expect(addContainer).toHaveClass('primary addContainer showInputs');
+    })
 })
