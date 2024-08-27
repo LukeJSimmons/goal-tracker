@@ -4,19 +4,12 @@ import store from "../store";
 import React, { useState, useEffect } from 'react';
 
 import Goal from "./Goal";
+import { useSelector } from "react-redux";
 
 
 
 const Goals = () => {
-    const [goals, setGoals] = useState(store.getState().goals);
-
-    useEffect(() => {
-        const unsubscribe = store.subscribe(() => {
-            setGoals(store.getState().goals);
-        })
-
-        return () => unsubscribe();
-    }, []);
+    const goals = useSelector(state => state.goals);
 
     return (<div className="secondary" id="goals" data-testid="goals">
         {goals.map((goal) => (

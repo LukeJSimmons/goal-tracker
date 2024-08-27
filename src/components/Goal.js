@@ -25,7 +25,7 @@ const Goal = ({Key, title, recurInterval, dueDate, completed}) => {
                 payload: Key
             })
         } else {
-            handleDeleteClick();
+            handleDeleteClick(Key);
         }
     }
 
@@ -47,20 +47,20 @@ const Goal = ({Key, title, recurInterval, dueDate, completed}) => {
     }
 
     return (
-        <div className={completed ? 'primary goal completed' : 'primary goal'}>
+        <div data-testid="goal" id={Key} className={completed ? 'primary goal completed' : 'primary goal'}>
             <div id='textContainer'>
                 <h2>{title}</h2>
                 <div className='flex'>
                     <p>{convertDateToString(calculateDate(dueDate))}</p>
                     {recurInterval ? (<>
-                        <img src={completed ? RepeatCompleted : Repeat} alt='repeat every' />
+                        <img data-testid="recurImg" src={completed ? RepeatCompleted : Repeat} alt='repeat every' />
                         <p>{recurInterval % 7 === 0 ? recurInterval / 7 : recurInterval} {recurInterval % 7 === 0 ? 'weeks' : 'days'}</p>
                     </>) : <></>}
                 </div>
             </div>
             <div id='buttonContainer'>
-                {completed ? <button className='secondary no-shadow' onClick={handleDeleteClick}><img src={X} alt='delete'/></button> : <></>}
-                <button className={completed ? 'completed' : 'alternate'} onClick={handleCompletedClick}><img src={Check} alt='complete'/></button>
+                {completed ? <button data-testid="deleteButton" className='secondary no-shadow' onClick={handleDeleteClick}><img src={X} alt='delete'/></button> : <></>}
+                <button data-testid="completeButton" className={completed ? 'completed' : 'alternate'} onClick={handleCompletedClick}><img src={Check} alt='complete'/></button>
             </div>
         </div>
     );
