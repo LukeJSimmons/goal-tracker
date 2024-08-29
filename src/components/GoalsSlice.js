@@ -33,4 +33,5 @@ const goalsSlice = createSlice({
     }
 })
 
+export const { addGoal, deleteGoal, completeGoal, uncompleteGoal } = goalsSlice.actions;
 export default goalsSlice.reducer;
