@@ -33,21 +33,24 @@ const convertDateToString = (daysDifference) => {
 }
 
 const convertWordsToInterval = (input) => {
-    const parts = input.split(' ');
+    let parts = input.split(' ');
     if (parts.length <= 1) {
-        
+        return null;
+    }
+    if (parts.length > 2) {
+        parts = parts.filter(part => part.trim() !== '');
     }
     const number = Number(parts[0]);
     const type = parts[1];
 
     let typeNumber = 1;
 
-    if (type === 'week' || type ==='weeks') {
+    if (type.toLowerCase() === 'week' || type.toLowerCase() ==='weeks') {
         typeNumber = 7;
-    } else if (type === 'month' || type === 'months') {
-        typeNumber = 30;
-    } else {
+    } else if (type.toLowerCase() === 'day' || type.toLowerCase() ==='days') {
         typeNumber = 1;
+    } else {
+        return null;
     }
 
     return number * typeNumber;
