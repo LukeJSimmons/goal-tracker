@@ -9,8 +9,9 @@ import X from '../images/X.png';
 import Check from '../images/Check.png';
 import Repeat from '../images/Repeat.png';
 import RepeatCompleted from '../images/RepeatCompleted.png';
+import { useDispatch } from 'react-redux';
 
-const Goal = ({Key, title, recurInterval, dueDate, completed}) => {
+const Goal = ({Key, title, recurInterval, dueDate, completed, handleDeleteClick}) => {
 
     const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -18,9 +19,11 @@ const Goal = ({Key, title, recurInterval, dueDate, completed}) => {
         setCurrentDate(new Date());
     }, []);
 
+    const dispatch = useDispatch();
+
     const handleCompletedClick = () => {
         if (recurInterval) {
-            store.dispatch({
+            dispatch({
                 type: 'goals/completeGoal',
                 payload: Key
             })
@@ -29,8 +32,8 @@ const Goal = ({Key, title, recurInterval, dueDate, completed}) => {
         }
     }
 
-    const handleDeleteClick = () => {
-        store.dispatch({
+    handleDeleteClick ? handleDeleteClick : handleDeleteClick = () => {
+        dispatch({
             type: 'goals/deleteGoal',
             payload: Key
         })
@@ -40,7 +43,7 @@ const Goal = ({Key, title, recurInterval, dueDate, completed}) => {
         const newDueDate = new Date(dueDate);
         newDueDate.setDate(newDueDate.getDate() + recurInterval);
 
-        store.dispatch({
+        dispatch({
             type: 'goals/uncompleteGoal',
             payload: {Key: Key, newDueDate: newDueDate}
         })
@@ -54,7 +57,7 @@ const Goal = ({Key, title, recurInterval, dueDate, completed}) => {
                     <p>{convertDateToString(calculateDate(dueDate))}</p>
                     {recurInterval ? (<>
                         <img data-testid="recurImg" src={completed ? RepeatCompleted : Repeat} alt='repeat every' />
-                        <p>{recurInterval % 7 === 0 ? recurInterval / 7 : recurInterval} {recurInterval % 7 === 0 ? 'weeks' : 'days'}</p>
+                        <p data-testid="recurText" >{recurInterval % 7 === 0 ? recurInterval / 7 : recurInterval} {recurInterval % 7 === 0 ? 'weeks' : 'days'}</p>
                     </>) : <></>}
                 </div>
             </div>
