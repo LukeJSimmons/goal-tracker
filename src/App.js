@@ -3,10 +3,11 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } 
 
 import Root from './pages/Root';
 import HomePage from './pages/HomePage';
+import ErrorPage from './pages/ErrorPage';
 
 // create router with JSX Route elements
 const appRouter = createBrowserRouter( createRoutesFromElements(
-  <Route path='/' element={<Root/>}>
+  <Route path='/' element={<Root/>} errorElement={<ErrorPage/>}>
     <Route path='/' element={<HomePage/>} />
   </Route>
 ));

@@ -2,7 +2,6 @@ import './Goal.css';
 
 import { useEffect, useState } from 'react';
 
-import store from '../store';
 import { calculateDate, convertDateToString } from '../utilities/CalculateDate';
 
 import X from '../images/X.png';
@@ -21,6 +20,15 @@ const Goal = ({Key, title, recurInterval, dueDate, completed, handleDeleteClick}
 
     const dispatch = useDispatch();
 
+    if (!handleDeleteClick) {
+        handleDeleteClick = () => {
+            dispatch({
+                type: 'goals/deleteGoal',
+                payload: Key
+            })
+        }
+    }
+
     const handleCompletedClick = () => {
         if (recurInterval) {
             dispatch({
@@ -30,13 +38,6 @@ const Goal = ({Key, title, recurInterval, dueDate, completed, handleDeleteClick}
         } else {
             handleDeleteClick(Key);
         }
-    }
-
-    handleDeleteClick ? handleDeleteClick : handleDeleteClick = () => {
-        dispatch({
-            type: 'goals/deleteGoal',
-            payload: Key
-        })
     }
 
     if (currentDate > new Date(dueDate) && completed && recurInterval) {

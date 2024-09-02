@@ -1,0 +1,13 @@
+.errorPage {
+    text-shadow: none;
+    color: white;
+}
+
+.fullError {
+    background-color: #110d47;
+    padding: 1rem 0;
+}
+
+a {
+    color: #00A6FB;
+}
