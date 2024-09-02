@@ -34,6 +34,12 @@ npm start
 ## Wireframes
 
 ![alt text](https://github.com/LukeJSimmons/goal-tracker/blob/master/src/images/Wireframe.png)
+![alt text](https://github.com/LukeJSimmons/goal-tracker/blob/master/src/images/Wireframe%20V2.png)
+
+## Mockups
+
+![alt text](https://github.com/LukeJSimmons/goal-tracker/blob/master/src/images/Mockup.png)
+![alt text](https://github.com/LukeJSimmons/goal-tracker/blob/master/src/images/Mockup%20V2.png)
 
 ## Authors
 
