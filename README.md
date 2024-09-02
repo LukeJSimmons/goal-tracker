@@ -33,7 +33,7 @@ npm start
 
 ## Wireframes
 
-![alt text](https://github.com/LukeJSimmons/goal-tracker/blob/master/Wireframe.png?raw=true)
+![alt text](https://github.com/LukeJSimmons/goal-tracker/blob/master/src/images/Wireframe.png)
 
 ## Authors
 
