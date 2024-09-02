@@ -1,7 +1,6 @@
 import "./Goals.css";
 
-import store from "../store";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import Goal from "./Goal";
 import { useSelector } from "react-redux";
